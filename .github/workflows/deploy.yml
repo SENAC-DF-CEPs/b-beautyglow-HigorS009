@@ -37,14 +37,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
+      - name: Create deployment directory
+        run: |
+          mkdir deploy
+          cp -r src/* deploy/
+          cp .nojekyll deploy/
+        
       - name: Setup Pages
         uses: actions/configure-pages@v4
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload src directory where the static site files are located
-          path: './src'
+          # Upload deployment directory with the correct structure
+          path: './deploy'
 
   # Deployment job
   deploy:
