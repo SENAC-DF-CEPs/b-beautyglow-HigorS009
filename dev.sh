@@ -5,4 +5,4 @@ echo "🔄 Recarrega automaticamente quando você salvar arquivos"
 echo "⏹️  Para parar: Ctrl+C"
 echo ""
 echo "Aguarde..."
-npm run dev
+cd src && npm run dev
