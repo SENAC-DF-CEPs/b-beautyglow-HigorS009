@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeautyGlow - Sua Beleza Natural</title>
+    <meta name="description" content="BeautyGlow - Descubra sua beleza natural com nossos produtos e serviços exclusivos">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Header Component -->
+    <div id="header-component"></div>
+    
+    <!-- Hero Section -->
+    <main>
+        <div id="hero-component"></div>
+        
+        <!-- About Section -->
+        <div id="about-component"></div>
+        
+        <!-- Services Section -->
+        <div id="services-component"></div>
+        
+        <!-- Contact Section -->
+        <div id="contact-component"></div>
+    </main>
+    
+    <!-- Footer Component -->
+    <div id="footer-component"></div>
+    
+    <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!-- Component Loading Script -->
+    <script>
+        // Load components when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle redirect from 404.html for GitHub Pages SPA routing
+            const redirect = sessionStorage.getItem('redirect');
+            if (redirect) {
+                sessionStorage.removeItem('redirect');
+                history.replaceState(null, null, redirect);
+            }
+            
+            // Load all components
+            loadComponents();
+        });
+    </script>
+</body>
+</html>

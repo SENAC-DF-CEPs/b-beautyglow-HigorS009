@@ -1,0 +1,16 @@
+{
+  "name": "beautyglow",
+  "version": "1.0.0",
+  "description": "BeautyGlow - Site estático com live reload",
+  "main": "index.html",
+  "scripts": {
+    "dev": "live-server --port=3000 --open=/index.html",
+    "start": "live-server --port=3000 --open=/index.html"
+  },
+  "keywords": ["html", "css", "javascript", "static-site"],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}
