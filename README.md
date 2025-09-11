@@ -3,7 +3,7 @@
 
 Site estático simples com live reload para desenvolvimento.
 
-## 🚀 Como usar
+## Como usar
 
 ### Desenvolvimento Local (com live reload)
 ```bash
@@ -36,3 +36,10 @@ O site é automaticamente publicado no GitHub Pages quando você faz push para a
 ## Funcionalidades
 - Live reload automático
 - Deploy automático no GitHub Pages
+
+
+## NodeJs
+
+### Siga o Tutorial para instalar o FNM para instalar/trocar versões do node
+
+[![Instalar Node.js com FNM](https://img.shields.io/badge/📦_Instalar_Node.js-FNM_Tutorial-blue?style=for-the-badge)](https://github.com/Schniz/fnm)
