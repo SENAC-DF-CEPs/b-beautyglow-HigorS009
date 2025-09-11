@@ -1,7 +1,7 @@
 // Component loading system
 async function loadComponent(componentName, targetId) {
     try {
-        const response = await fetch(`components/${componentName}.html`);
+        const response = await fetch(`src/components/${componentName}.html`);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
