@@ -94,27 +94,79 @@ function initializeInteractivity() {
         });
     }
 
-    // Contact form
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-            
-            // Simple validation
-            if (!data.name || !data.email || !data.message) {
-                alert('Por favor, preencha todos os campos obrigatórios.');
-                return;
-            }
-            
-            // Simulate form submission
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            this.reset();
-        });
-    }
+    // WhatsApp contact form enhancement
+    initWhatsAppContactForm();
 
     console.log('BeautyGlow - Componentes carregados e interatividade inicializada!');
+}
+
+// --- WhatsApp contact form logic ---
+const WHATSAPP_NUMBER = '556134567801'; // Ajuste aqui se necessário
+
+function initWhatsAppContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+
+    // Prevent double bind
+    if (form.dataset.whatsappEnhanced === 'true') return;
+    form.dataset.whatsappEnhanced = 'true';
+
+    // Ensure preview container exists
+    let preview = form.querySelector('#whatsapp-preview');
+    if (!preview) {
+        preview = document.createElement('div');
+        preview.id = 'whatsapp-preview';
+        preview.style.display = 'none';
+        preview.style.marginTop = '14px';
+        preview.style.padding = '14px';
+        preview.style.border = '1px solid #d3e5e5';
+        preview.style.background = '#f3fbfb';
+        preview.style.borderRadius = '10px';
+        preview.style.fontSize = '.95rem';
+        preview.style.lineHeight = '1.35';
+        form.appendChild(preview);
+    }
+
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = form.querySelector('#name')?.value.trim() || '';
+        const email = form.querySelector('#email')?.value.trim() || '';
+        const phone = form.querySelector('#phone')?.value.trim() || '';
+        const serviceSelect = form.querySelector('#service');
+        const service = serviceSelect ? serviceSelect.options[serviceSelect.selectedIndex].text : '';
+        const message = form.querySelector('#message')?.value.trim() || '';
+
+        if (!name || !email || !message) {
+            showInlineValidation(preview, 'Preencha os campos obrigatórios (Nome, E-mail, Mensagem).');
+            return;
+        }
+
+        const text = `Olá, meu nome é ${name}.\nE-mail: ${email}\nTelefone: ${phone || 'Não informado'}\nServiço: ${service}\nMensagem: ${message}`;
+
+        renderWhatsAppPreview(preview, text);
+
+        const encoded = encodeURIComponent(text);
+        window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encoded}`, '_blank');
+    });
+}
+
+function renderWhatsAppPreview(previewEl, text) {
+    previewEl.style.display = 'block';
+    previewEl.innerHTML = `
+        <strong style="display:block;margin-bottom:6px;color:#227b75;">Pré-visualização da mensagem:</strong>
+        <pre style="margin:0;white-space:pre-wrap;font-family:inherit;">${text}</pre>
+        <div style="margin-top:10px;font-size:.8rem;color:#227b75;background:#e6f7f6;padding:6px 8px;border-radius:6px;">
+            WhatsApp aberto em nova aba. Se não abriu,
+            <a href="https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}" target="_blank" rel="noopener" style="color:#0d6d68;text-decoration:underline;">clique aqui</a>.
+        </div>
+    `;
+}
+
+function showInlineValidation(previewEl, msg) {
+    previewEl.style.display = 'block';
+    previewEl.innerHTML = `
+        <div style="color:#b84747;font-weight:600;margin-bottom:6px;">Atenção:</div>
+        <div style="color:#7a2e2e;">${msg}</div>
+    `;
 }
