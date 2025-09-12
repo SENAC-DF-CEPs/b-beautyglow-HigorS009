@@ -1,5 +1,12 @@
 /* BeautyGlow - Main Styles */
-
+:root {
+    /* Cores derivadas da base #3f3811 */
+    --brand-base: #3f3811;
+    --brand-mid:  #cdbf74;
+    --brand-mid-alt: #b6a551;
+    --brand-light: #f5f2e6;
+    --text-base: #ecc64a;
+}
 /* Reset and base styles */
 * {
     margin: 0;
@@ -63,36 +70,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    background: linear-gradient(135deg, var(--brand-mid), var(--brand-mid-alt));
     color: white;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+    box-shadow: 0 10px 25px rgba(205, 191, 116, 0.45);
 }
 
 .btn-secondary {
     background: transparent;
-    color: #e74c3c;
-    border: 2px solid #e74c3c;
+    color: var(--brand-base);
+    border: 2px solid var(--brand-base);
 }
 
 .btn-secondary:hover {
-    background: #e74c3c;
+    background: var(--brand-base);
     color: white;
 }
 
 .btn-outline {
     background: transparent;
-    color: #2c3e50;
+    color: var(--brand-base);
     border: 2px solid #ecf0f1;
 }
 
 .btn-outline:hover {
-    background: #2c3e50;
+    background: var(--brand-base);
     color: white;
-    border-color: #2c3e50;
+    border-color: var(--brand-base);
 }
 
 /* Sections */
