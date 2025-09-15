@@ -21,6 +21,7 @@ async function loadComponents() {
     const components = [
         { name: 'header', target: 'header-component' },
         { name: 'hero', target: 'hero-component' },
+        { name: 'carousel', target: 'carousel-component' },
         { name: 'sobre', target: 'about-component' },
         { name: 'services', target: 'services-component' },
         { name: 'contato', target: 'contact-component' },
@@ -133,7 +134,7 @@ function initCarousel() {
     setInterval(() => {
         let index = (currentIndex + 1) % slides.length;
         updateCarousel(index);
-    }, 1000);
+    }, 4000);
 
     updateCarousel(0);
 }
@@ -141,7 +142,7 @@ function initCarousel() {
 // =======================
 // WhatsApp Form
 // =======================
-const WHATSAPP_NUMBER = '556134567801';
+const WHATSAPP_NUMBER = '5561983010730';
 
 function initWhatsAppContactForm() {
     const form = document.getElementById('contactForm');
