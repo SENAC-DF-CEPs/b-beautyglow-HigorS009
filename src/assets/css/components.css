@@ -131,7 +131,7 @@
 
 /* About Section */
 .about {
-    background: #f8f9fa;
+    background: var(--pink-light);
 }
 
 .about-content {
@@ -154,7 +154,7 @@
 }
 
 .feature i {
-    color: var(--text-base);
+    color: var(--color-alternative);
     font-size: 1.5rem;
     margin-top: 0.25rem;
 }

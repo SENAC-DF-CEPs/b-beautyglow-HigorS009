@@ -211,6 +211,17 @@ function showInlineValidation(previewEl, msg) {
     `;
 }
 
-
+function maskPhone(input) {
+    let v = input.value.replace(/\D/g, "");
+    if (v.length > 10) {
+        input.value = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, "($1) $2-$3");
+    } else if (v.length > 5) {
+        input.value = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+    } else if (v.length > 2) {
+        input.value = v.replace(/^(\d{2})(\d{0,5})/, "($1) $2");
+    } else {
+        input.value = v;
+    }
+}
 
 document.addEventListener('DOMContentLoaded', loadComponents);
