@@ -6,6 +6,10 @@
     --brand-mid-alt: #b6a551;
     --brand-light: #f5f2e6;
     --text-base: #ecc64a;
+    --color-alternative: #f0afab;
+    --color-alternative-dark: #ecb391;
+    --white-dark: #f8f9fa;
+    --pink-light: #ffeae9;
 }
 /* Reset and base styles */
 * {
@@ -100,6 +104,15 @@ h1, h2, h3, h4, h5, h6 {
     background: var(--brand-base);
     color: white;
     border-color: var(--brand-base);
+}
+
+.btn-primary-pink {
+    background: linear-gradient(135deg, var(--color-alternative), var(--color-alternative-dark));
+    color: white;
+}
+.btn-primary-pink:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(240, 175, 171, 0.45);
 }
 
 /* Sections */
